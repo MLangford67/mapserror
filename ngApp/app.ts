@@ -34,36 +34,75 @@
 //
 //
 // }
+ // namespace random{
+ //  angular.module('random', ['ui.router', 'ngResource', 'ui.bootstrap', 'ngAnimate']).config(($stateProvider: ng.ui.IStateProvider, $locationProvider: ng.ILocationProvider, $urlRouterProvider: ng.ui.IUrlRouterProvider) => {
+  //      $stateProvider
+  //          .state('Home', {
+  //              url: '/',
+  //              templateUrl: '/ngApp/views/list.html',
+  //              controller: random.Controllers.MoviesListController,
+  //              controllerAs: 'controller'
+  //          })
+  //          .state('Add', {
+  //              url: '/add',
+  //              templateUrl: '/ngApp/views/add.html',
+  //              controller: random.Controllers.MoviesAddController,
+  //              controllerAs: 'controller'
+  //          })
+  //          .state('Edit', {
+  //              url: '/edit/:id',
+  //              templateUrl: '/ngApp/views/edit.html',
+  //              controller: random.Controllers.MoviesEditController,
+  //              controllerAs: 'controller'
+  //          })
+  //          .state('Delete', {
+  //              url: '/delete/:id',
+  //              templateUrl: '/ngApp/views/delete.html',
+  //              controller: random.Controllers.MoviesDeleteController,
+  //              controllerAs: 'controller'
+  //          });
+   //
+   //
+  //      $urlRouterProvider.otherwise('/');
+  //      $locationProvider.html5Mode(true);
+  //  });
+// }
+
+
+//animation logic
+
+// module random {
+//     var main = angular.module("random", ["ngRoute", "ngAnimate"]);
+//
+//     main.config(routeConfig);
+//
+//     function routeConfig(
+//         $routeProvider: ng.route.IRouteProvider): void {
+//             $routeProvider
+//                 .when('/', {
+//                     templateUrl: '/ngViews/viewA.html',
+//                     controller: 'ViewAController',
+//                     controllerAs: 'main'
+//                 })
+//                 .when('/viewA', {
+//                     templateUrl: '/ngViews/viewA.html',
+//                     controller: 'ViewAController',
+//                     controllerAs: 'main'
+//                 })
+//                 .when('/viewB/:id', {
+//                     templateUrl: '/ngViews/viewB.html',
+//                     controller: 'ViewBController',
+//                     controllerAs: 'main'
+//                 });
+//     }
+// }
+
 namespace random{
-  angular.module('MoviesApp', ['ui.router', 'ngResource']).config(($stateProvider: ng.ui.IStateProvider, $locationProvider: ng.ILocationProvider, $urlRouterProvider: ng.ui.IUrlRouterProvider) => {
-       $stateProvider
-           .state('Home', {
-               url: '/',
-               templateUrl: '/ngApp/views/list.html',
-               controller: random.Controllers.MoviesListController,
-               controllerAs: 'controller'
-           })
-           .state('Add', {
-               url: '/add',
-               templateUrl: '/ngApp/views/add.html',
-               controller: random.Controllers.MoviesAddController,
-               controllerAs: 'controller'
-           })
-           .state('Edit', {
-               url: '/edit/:id',
-               templateUrl: '/ngApp/views/edit.html',
-               controller: random.Controllers.MoviesEditController,
-               controllerAs: 'controller'
-           })
-           .state('Delete', {
-               url: '/delete/:id',
-               templateUrl: '/ngApp/views/delete.html',
-               controller: random.Controllers.MoviesDeleteController,
-               controllerAs: 'controller'
-           });
+  angular.module('random', ['ui.router', 'ngResource', 'ui.bootstrap', 'ngAnimate', 'uiGmapgoogle-maps']).config((uiGmapGoogleMapApiProvider: any) => {
+        uiGmapGoogleMapApiProvider.configure({
+            //    key: 'your api key',
+        });
 
+    });
 
-       $urlRouterProvider.otherwise('/');
-       $locationProvider.html5Mode(true);
-   });
 }
